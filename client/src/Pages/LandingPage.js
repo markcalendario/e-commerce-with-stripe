@@ -6,7 +6,7 @@ import Button from "../Components/Buttons";
 export default function LandingPage() {
   return (
     <React.Fragment>
-      <Navbar />
+      <Navbar variant="primary-variant" />
       <Hero />
     </React.Fragment>
   )

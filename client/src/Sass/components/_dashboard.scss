@@ -1,0 +1,55 @@
+#dashboard {
+  padding: 50px 0;
+  background-color: $white1;
+
+  .container {
+    .wrapper {
+      &>*:not(:first-child) {
+        margin-top: 15px;
+      }
+
+      .d-controls {
+        .d-box {
+          color: $white;
+          font-weight: bold;
+          transition: 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+
+          &:not(:first-child) {
+            margin-top: 5px;
+          }
+
+          cursor: pointer;
+          background-color: $primary-color;
+          padding: 10px;
+        }
+
+        .purchases {
+          background-color: $primary-stable;
+
+          &:hover {
+            color: $primary-stable;
+            background-color: $white;
+          }
+        }
+
+        .out {
+          background-color: $primary-danger;
+
+          &:hover {
+            color: $primary-danger;
+            background-color: $white;
+          }
+        }
+
+        .cart {
+          background-color: $primary-success;
+
+          &:hover {
+            color: $primary-success;
+            background-color: $white;
+          }
+        }
+      }
+    }
+  }
+}
