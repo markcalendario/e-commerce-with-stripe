@@ -1,0 +1,21 @@
+button:focus {
+  outline: 0;
+}
+
+.primary-button {
+  border: 0;
+  padding: 10px 25px;
+  border-radius: 0;
+  cursor: pointer;
+  color: $white;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.solid-btn-primary {
+  background-color: $primary-stable;
+}
+
+.solid-btn-danger {
+  background-color: $primary-danger;
+}

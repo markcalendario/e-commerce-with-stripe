@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,700;0,900;1,400&display=swap");
+#main-nav {
+  background-color: #FFC727;
+  padding: 10px 0;
+}
+#main-nav .container .wrapper .brand h1 {
+  color: white;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.primary-button {
+  border: 0;
+  padding: 10px 25px;
+  border-radius: 0;
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.solid-btn-primary {
+  background-color: rgb(0, 128, 255);
+}
+
+.solid-btn-danger {
+  background-color: rgb(255, 0, 68);
+}
+
+input {
+  background-color: white;
+  padding: 10px;
+  border: 1px gray solid;
+}
+input:focus {
+  outline: 0;
+}
+
+#hero {
+  padding: 50px 0;
+}
+#hero .container .wrapper {
+  text-align: center;
+}
+#hero .container .wrapper > * {
+  margin-top: 10px;
+}
+#hero .container .wrapper .hero-text > * {
+  margin-top: 13px;
+}
+#hero .container .wrapper .hero-text h1 {
+  line-height: 36px;
+}
+
+@media screen and (min-width: 768px) {
+  #hero {
+    padding: 90px 0;
+  }
+  #hero .container .wrapper {
+    text-align: unset;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #hero .container .wrapper > * {
+    margin-top: unset;
+  }
+  #hero .container .wrapper .hero-text > * {
+    margin-top: 20px;
+  }
+  #hero .container .wrapper .hero-text h1 {
+    line-height: unset;
+    font-size: 40px;
+  }
+  #hero .container .wrapper .hero-image {
+    text-align: center;
+  }
+}
+#login {
+  min-height: 100vh;
+  background-color: #FFC727;
+}
+#login .container .wrapper {
+  display: flex;
+  justify-content: center;
+}
+#login .container .wrapper .login-box {
+  margin-top: 100px;
+  background-color: white;
+  display: inline-block;
+  width: 400px;
+  padding: 30px;
+  border-radius: 5px;
+}
+#login .container .wrapper .login-box .l-box-title {
+  text-align: center;
+  font-size: xx-large;
+  font-weight: 900;
+}
+#login .container .wrapper .login-box > *,
+#login .container .wrapper .login-box .l-form-control > *,
+#login .container .wrapper .login-box .l-form-fields > * {
+  width: 100%;
+  margin: 7px 0;
+}
+#login .container .wrapper .login-box .l-form-control {
+  text-align: center;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* For smaller screens: */
+[class*=col-] {
+  width: 100%;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+/* BREAK POINTS */
+@media only screen and (min-width: 768px) {
+  /* For Larger Screens: */
+  .container {
+    margin: auto;
+    max-width: 1100px;
+  }
+  .col-1 {
+    width: 8.33%;
+  }
+  .col-2 {
+    width: 16.66%;
+  }
+  .col-3 {
+    width: 25%;
+  }
+  .col-4 {
+    width: 33.33%;
+  }
+  .col-5 {
+    width: 41.66%;
+  }
+  .col-6 {
+    width: 50%;
+  }
+  .col-7 {
+    width: 58.33%;
+  }
+  .col-8 {
+    width: 66.66%;
+  }
+  .col-9 {
+    width: 75%;
+  }
+  .col-10 {
+    width: 83.33%;
+  }
+  .col-11 {
+    width: 91.66%;
+  }
+  .col-12 {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 600px) {
+  /* For Medium Screens (Tablet): */
+  .col-s-1 {
+    width: 8.33%;
+  }
+  .col-s-2 {
+    width: 16.66%;
+  }
+  .col-s-3 {
+    width: 25%;
+  }
+  .col-s-4 {
+    width: 33.33%;
+  }
+  .col-s-5 {
+    width: 41.66%;
+  }
+  .col-s-6 {
+    width: 50%;
+  }
+  .col-s-7 {
+    width: 58.33%;
+  }
+  .col-s-8 {
+    width: 66.66%;
+  }
+  .col-s-9 {
+    width: 75%;
+  }
+  .col-s-10 {
+    width: 83.33%;
+  }
+  .col-s-11 {
+    width: 91.66%;
+  }
+  .col-s-12 {
+    width: 100%;
+  }
+}
+* {
+  font-family: "Poppins", sans-serif;
+}/*# sourceMappingURL=main.css.map */

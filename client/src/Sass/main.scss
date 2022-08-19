@@ -1,0 +1,15 @@
+// import needed scss here
+
+@import "./abstracts/variables";
+
+@import "./components/navbar";
+@import "./components/buttons";
+@import "./components/form-fields";
+
+@import "./pages/landing-page";
+
+@import "./pages/login";
+
+@import "./layouts/responsive";
+
+@import "./base/typography"

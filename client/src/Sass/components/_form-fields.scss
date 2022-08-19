@@ -1,0 +1,9 @@
+input {
+  background-color: $white;
+  padding: 10px;
+  border: 1px $gray solid;
+
+  &:focus {
+    outline: 0;
+  }
+}

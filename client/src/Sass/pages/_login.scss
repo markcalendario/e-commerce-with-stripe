@@ -1,0 +1,37 @@
+#login {
+  min-height: 100vh;
+  background-color: $primary-color;
+
+  .container {
+    .wrapper {
+      display: flex;
+      justify-content: center;
+
+      .login-box {
+        margin-top: 100px;
+        background-color: $white;
+        display: inline-block;
+        width: 400px;
+        padding: 30px;
+        border-radius: 5px;
+
+        .l-box-title {
+          text-align: center;
+          font-size: xx-large;
+          font-weight: 900;
+        }
+
+        &>*,
+        .l-form-control>*,
+        .l-form-fields>* {
+          width: 100%;
+          margin: 7px 0;
+        }
+
+        .l-form-control {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
