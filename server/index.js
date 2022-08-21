@@ -1,20 +1,21 @@
 var express = require('express');
 var app = express();
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 require('dotenv').config()
 
-app.use(cors({
-  origin: "https://test.com"
-}))
-
-
-app.get('/', function (req, res) {
-  res.send('Hello World');
-})
+app.use(cors({ credentials: true, origin: process.env.ORIGIN }))
+app.use(cookieParser());
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
 
 // Middlewares
+const auth = require('./apis/auth')
+app.use('/auth', auth);
 const accounts = require('./apis/accounts')
-
 app.use('/accounts', accounts);
 
 app.listen(process.env.PORT, function () {
