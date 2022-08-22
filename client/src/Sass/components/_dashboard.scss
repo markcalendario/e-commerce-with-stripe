@@ -21,6 +21,16 @@
           cursor: pointer;
           background-color: $primary-color;
           padding: 10px;
+          border-radius: 3px;
+        }
+
+        .shop {
+          background-color: $primary-color;
+
+          &:hover {
+            color: $primary-color;
+            background-color: $white;
+          }
         }
 
         .purchases {
@@ -47,6 +57,27 @@
           &:hover {
             color: $primary-success;
             background-color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #dashboard {
+    .container {
+      .wrapper {
+        .d-controls {
+          display: flex;
+          align-items: center;
+
+          .d-box {
+            margin-right: 5px;
+
+            &:not(:first-child) {
+              margin-top: unset;
+            }
           }
         }
       }

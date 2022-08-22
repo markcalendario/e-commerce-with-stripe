@@ -8,7 +8,7 @@ async function jwtSign(payload) {
   })
 }
 
-async function jwtVerify(req, res, next) {
+async function jwtVerifyAuthCookie(req, res, next) {
   if (typeof req.cookies.auth === 'undefined') {
     return res.send({ isAuth: false, message: "Token not found." })
   }
@@ -18,8 +18,12 @@ async function jwtVerify(req, res, next) {
       return res.clearCookie('auth').send({ isAuth: false, message: err.message })
     }
 
-    return res.send({ isAuth: true, message: "Authorized" })
+    next();
   })
 }
 
-module.exports = { jwtSign, jwtVerify }
+function jwtGetPayload(token) {
+  return jwt.decode(token);
+}
+
+module.exports = { jwtSign, jwtVerifyAuthCookie, jwtGetPayload }

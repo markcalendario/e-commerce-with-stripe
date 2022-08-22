@@ -4,6 +4,7 @@ import LandingPage from "./Pages/LandingPage";
 import Register from "./Pages/Register";
 import Shop from "./Pages/Shop";
 import { LoggedInProtectedRoute } from "./Pages/RouteProtection";
+import Cart from "./Pages/Cart";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/shop" element={<LoggedInProtectedRoute redirect="/login" component={<Shop />} />} />
+        <Route path="/shop/cart" element={<LoggedInProtectedRoute redirect="/login" component={<Cart />} />} />
       </Routes>
     </BrowserRouter>
   );

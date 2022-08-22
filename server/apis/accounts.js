@@ -1,6 +1,8 @@
 const moment = require('moment');
+const { ObjectId } = require('mongodb');
 const DATABASE = require('../db/db');
-const { jwtSign } = require('../functions/jwt');
+const { isMongoIDValid } = require('../db/db-validators');
+const { jwtSign, jwtVerifyAuthCookie, jwtGetPayload } = require('../functions/jwt');
 const { encryptPassword, isPasswordCorrect } = require('../functions/passwords');
 
 const router = require('express').Router();
@@ -101,6 +103,26 @@ router.post('/login', validateLoginPayload, async (req, res) => {
 
   return res.cookie("auth", await jwtSign({ uid: userData._id }), { httpOnly: true }).send({ success: true, message: "You are now logged in." })
 
+})
+
+// Basic Info
+
+router.post('/my-info', jwtVerifyAuthCookie, async (req, res) => {
+
+  const payload = jwtGetPayload(req.cookies.auth)
+  if (!isMongoIDValid(payload.uid)) {
+    return res.status(401).send({ success: false, message: 'Mongo ID malformed.' })
+  }
+
+  const db = await DATABASE()
+  db.db('shopitty').collection('users').findOne({ _id: ObjectId(payload.uid) }, (error, result) => {
+    db.close();
+
+    if (error)
+      return res.send({ success: false, message: 'An error occured.' })
+
+    return res.send({ success: true, message: 'Information fetched successfully.', userData: { fullName: result.fullName, userName: result.userName } })
+  })
 })
 
 module.exports = router 

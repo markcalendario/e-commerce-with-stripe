@@ -17,6 +17,12 @@ const auth = require('./apis/auth')
 app.use('/auth', auth);
 const accounts = require('./apis/accounts')
 app.use('/accounts', accounts);
+const payments = require('./apis/payments')
+app.use('/payments', payments);
+const products = require('./apis/products')
+app.use('/products', products);
+const cart = require('./apis/cart')
+app.use('/cart', cart);
 
 app.listen(process.env.PORT, function () {
   console.log("Express is running at %d.", process.env.PORT);
