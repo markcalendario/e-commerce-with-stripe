@@ -3,11 +3,17 @@
   padding: 10px 0;
 }
 #main-nav.primary-variant {
-  background-color: #FFC727;
+  background-color: #0093f9;
+  color: white;
+}
+#main-nav.primary-variant a {
   color: white;
 }
 #main-nav.white-variant {
   background-color: white;
+  color: black;
+}
+#main-nav.white-variant a {
   color: black;
 }
 #main-nav .container .wrapper {
@@ -16,7 +22,7 @@
   justify-content: space-between;
 }
 #main-nav .container .wrapper a {
-  color: white;
+  font-size: small;
   font-weight: bold;
 }
 
@@ -111,7 +117,7 @@ input:focus {
   font-weight: bold;
   transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   cursor: pointer;
-  background-color: #FFC727;
+  background-color: #0093f9;
   padding: 10px;
   border-radius: 3px;
 }
@@ -119,10 +125,10 @@ input:focus {
   margin-top: 5px;
 }
 #dashboard .container .wrapper .d-controls .shop {
-  background-color: #FFC727;
+  background-color: #0093f9;
 }
 #dashboard .container .wrapper .d-controls .shop:hover {
-  color: #FFC727;
+  color: #0093f9;
   background-color: white;
 }
 #dashboard .container .wrapper .d-controls .purchases {
@@ -218,10 +224,35 @@ input:focus {
     margin-right: 40px;
   }
 }
+#payment-result .container .cancelled {
+  color: rgb(255, 0, 68);
+}
+#payment-result .container .success {
+  color: rgb(0, 184, 71);
+}
+#payment-result .container .wrapper {
+  width: 100%;
+  text-align: center;
+  margin-top: 120px;
+}
+#payment-result .container .wrapper img {
+  width: 240px;
+  margin: auto;
+}
+#payment-result .container .wrapper > * {
+  margin: 10px 0;
+}
+#payment-result .container .wrapper h1 {
+  font-size: xx-large;
+}
+#payment-result .container .wrapper p {
+  color: #0f0f0f;
+}
+
 #login,
 #register {
   min-height: 100vh;
-  background-color: #FFC727;
+  background-color: #0093f9;
 }
 #login .container .wrapper,
 #register .container .wrapper {

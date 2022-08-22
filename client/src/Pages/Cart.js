@@ -32,9 +32,9 @@ function CartItems() {
       }).then(result => {
         setProducts(result.cartData)
       })
-  })
+  }, [])
 
-  useEffect(() => { fetchCartProducts() }, [])
+  useEffect(() => { fetchCartProducts() }, [fetchCartProducts])
 
   function displayAllCartProducts() {
     return products.map(value => (

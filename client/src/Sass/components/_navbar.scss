@@ -4,11 +4,19 @@
   &.primary-variant {
     background-color: $primary-color;
     color: $white;
+
+    a {
+      color: $white;
+    }
   }
 
   &.white-variant {
     background-color: $white;
     color: $black;
+
+    a {
+      color: $black;
+    }
   }
 
   .container {
@@ -18,7 +26,7 @@
       justify-content: space-between;
 
       a {
-        color: $white;
+        font-size: small;
         font-weight: bold;
       }
     }

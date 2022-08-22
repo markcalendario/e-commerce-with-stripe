@@ -125,4 +125,10 @@ router.post('/my-info', jwtVerifyAuthCookie, async (req, res) => {
   })
 })
 
+// Sign out
+
+router.post('/sign-out', jwtVerifyAuthCookie, async (req, res) => {
+  return res.clearCookie('auth').send({ success: true, message: 'You have been signed out.' })
+})
+
 module.exports = router 

@@ -7,8 +7,7 @@ export default function Dashboard() {
   const fetchUserInfo = useCallback(async () => {
     const config = {
       method: "POST",
-      credentials: 'include',
-      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include'
     }
     fetch(process.env.REACT_APP_API_URL + "/accounts/my-info", config)
       .then(result => { return result.json() })
@@ -18,6 +17,18 @@ export default function Dashboard() {
   }, [])
 
   useEffect(() => { fetchUserInfo() }, [fetchUserInfo])
+
+  function handleSignOut() {
+    const config = {
+      method: "POST",
+      credentials: 'include'
+    }
+    fetch(process.env.REACT_APP_API_URL + "/accounts/sign-out", config)
+      .then(result => { return result.json() })
+      .then(() => {
+        window.location.reload()
+      })
+  }
 
   return (
     <section id="dashboard">
@@ -31,7 +42,7 @@ export default function Dashboard() {
             <div onClick={() => window.location.href = "/shop"} className="d-box shop">Shop</div>
             <div onClick={() => window.location.href = "/purchases"} className="d-box purchases">Purchases</div>
             <div onClick={() => window.location.href = "/shop/cart"} className="d-box cart">Cart</div>
-            <div className="d-box out">Sign Out</div>
+            <div onClick={handleSignOut} className="d-box out">Sign Out</div>
           </div>
         </div>
       </div>

@@ -22,8 +22,19 @@ async function jwtVerifyAuthCookie(req, res, next) {
   })
 }
 
+async function isJWTVerified(token) {
+  return await new Promise(resolve => {
+    jwt.verify(token, 'w8evDAiGSswMkoxchWVJ5E8Q2DzteW8k', function (err, decoded) {
+      if (err) {
+        resolve(false)
+      }
+      resolve(true)
+    })
+  })
+}
+
 function jwtGetPayload(token) {
   return jwt.decode(token);
 }
 
-module.exports = { jwtSign, jwtVerifyAuthCookie, jwtGetPayload }
+module.exports = { jwtSign, jwtVerifyAuthCookie, jwtGetPayload, isJWTVerified }

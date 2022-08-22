@@ -32,9 +32,9 @@ function DisplayItems() {
       }).then(result => {
         setProducts(result.products)
       })
-  })
+  }, [])
 
-  useEffect(() => { fetchProducts() }, [])
+  useEffect(() => { fetchProducts() }, [fetchProducts])
 
   function displayAllProducts() {
     return products.map(value => (
