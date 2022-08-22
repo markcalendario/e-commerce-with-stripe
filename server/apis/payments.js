@@ -3,7 +3,7 @@ const DATABASE = require('../db/db');
 const { isMongoIDValid } = require('../db/db-validators');
 const { jwtVerifyAuthCookie, jwtGetPayload, jwtSign } = require('../functions/jwt');
 const router = require('express').Router();
-const stripe = require('stripe')('sk_test_51LZT8DCHyimBcL1fP3haQirk4pzfWC4Wf8Eua9BeBCSw83uLJImzMrxWFSScOuLaUfzdSJVrOYtzqcmyzKmtqMEg00KHovZSMx');
+const stripe = require('stripe')(process.env.STRIPE_URI);
 
 async function isProductExists(productId) {
   const db = await DATABASE()
