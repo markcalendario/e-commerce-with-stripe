@@ -95,7 +95,7 @@ What I have learned while implementing Stripe
 
 **Cons**
 
-- Not available in the Philippines
+- Production is not available in the Philippines, the test only
 
 # Stripe API
 
