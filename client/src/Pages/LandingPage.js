@@ -18,9 +18,9 @@ function Hero() {
       <div className="container">
         <div className="wrapper">
           <div className="hero-text col-5">
-            <h1>Lorem, ipsum dolor sit amet consectetur adipisicing</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, nesciunt.</p>
-            <Button type="solid-btn-primary">Start shopping</Button>
+            <h1>Quality Products in Your Hands</h1>
+            <p>Explore, browse, and add quality products in your cart with ease.</p>
+            <Button onClick={() => window.location.href = "/login"} type="solid-btn-primary">Start shopping</Button>
           </div>
           <div className="hero-image col-5">
             <img src={HeroImage} alt="hero" />

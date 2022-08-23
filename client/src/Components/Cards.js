@@ -23,7 +23,7 @@ export function ItemCardAddToCart(props) {
       <div className="item-content">
         <h3 className="item-title">{props.title}</h3>
         <p className="item-description">{props.description}</p>
-        <h2 className="item-price">${props.price}</h2>
+        <h2 className="item-price">P{props.price}</h2>
         <Button onClick={handleAddToCart} type="solid-btn-primary">Add To Cart</Button>
       </div>
     </div>
@@ -67,7 +67,7 @@ export function ItemCardCheckOut(props) {
       <div className="item-content">
         <h3 className="item-title">{props.title}</h3>
         <p className="item-description">{props.description}</p>
-        <h2 className="item-price">${props.price}</h2>
+        <h2 className="item-price">P{props.price}</h2>
         <Button onClick={handleRemoveFromCart} type="solid-btn-danger">Remove from Cart</Button>
         <Button onClick={handleCheckOut} type="solid-btn-success">Check Out</Button>
       </div>
