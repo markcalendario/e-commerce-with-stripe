@@ -7,6 +7,7 @@ import { LoggedInProtectedRoute } from "./Pages/RouteProtection";
 import Cart from "./Pages/Cart";
 import PaymentSuccess from "./Pages/PaymentSuccess";
 import PaymentCancelled from "./Pages/PaymentCancelled";
+import Purchases from "./Pages/Purchases";
 
 function App() {
   return (
@@ -17,8 +18,9 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/shop" element={<LoggedInProtectedRoute redirect="/login" component={<Shop />} />} />
         <Route path="/shop/cart" element={<LoggedInProtectedRoute redirect="/login" component={<Cart />} />} />
-        <Route path="/purchase-success/:paymentToken" element={<LoggedInProtectedRoute redirect="/login" component={<PaymentSuccess />} />} />
-        <Route path="/purchase-cancelled" element={<LoggedInProtectedRoute redirect="/login" component={<PaymentCancelled />} />} />
+        <Route path="/purchase-success/:paymentToken" element={<PaymentSuccess />} />
+        <Route path="/purchase-cancelled" element={<PaymentCancelled />} />
+        <Route path="/purchases" element={<LoggedInProtectedRoute redirect="/login" component={<Purchases />} />} />
       </Routes>
     </BrowserRouter>
   );

@@ -27,25 +27,17 @@ export default function PaymentSuccess() {
         <p>You have successfully paid for that product.</p>
         <Button onClick={() => { window.location.href = "/shop" }} type="solid-btn-success">Confirm</Button>
       </React.Fragment>
-    } else if (isSaveOk === 0) {
+    }
+    else if (isSaveOk === 0) {
       return <React.Fragment>
         <img src={require('../Assets/Images/success-purchase.svg').default} alt="Purchase" />
         <h1>Payment was Already Processed!</h1>
         <p>You can see your purchase history on the 'purhcases' tab</p>
         <Button onClick={() => { window.location.href = "/shop" }} type="solid-btn-primary">Ok</Button>
       </React.Fragment>
-    } else if (isSaveOk === -1) {
-      return <React.Fragment>
-        <h1 className="err-result-head">Uh oh!</h1>
-        <p>We cannot process your payment.</p>
-        <Button onClick={() => { window.location.href = "/shop" }} type="solid-btn-danger">Go Back</Button>
-      </React.Fragment >
-    } else {
-      return <React.Fragment>
-        <h1>Analyizing Result</h1>
-        <p>Please wait...</p>
-      </React.Fragment>
     }
+    else if (isSaveOk === -1) window.location.href = "/shop"
+    else return null
   }
 
   return (

@@ -18,6 +18,8 @@ async function isProductExists(productId) {
   })
 }
 
+// Check out
+
 router.post('/checkout/:productId', jwtVerifyAuthCookie, async (req, res) => {
 
   const uid = jwtGetPayload(req.cookies.auth).uid
@@ -43,6 +45,16 @@ router.post('/checkout/:productId', jwtVerifyAuthCookie, async (req, res) => {
       })
   })
 
+  const purchaseToken = await jwtSign({
+    productData: {
+      title: productData.title,
+      description: productData.description,
+      price: productData.price,
+      quantity: productData.quantity,
+    },
+    userId: uid
+  })
+
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
     mode: "payment",
@@ -58,11 +70,14 @@ router.post('/checkout/:productId', jwtVerifyAuthCookie, async (req, res) => {
       },
       quantity: 1
     }],
-    success_url: `${process.env.ORIGIN}/purchase-success/${await jwtSign({ productId: req.params.productId, userId: uid })}`,
+    success_url: `${process.env.ORIGIN}/purchase-success/${purchaseToken}`,
     cancel_url: `${process.env.ORIGIN}/purchase-cancelled`,
   });
+
   return res.send({ success: true, checkOutUrl: session.url })
 });
+
+// Save Purchase
 
 router.post('/save-purchase/:paymentToken', async (req, res) => {
   // Intentionally not verifying auth cookie to ensure saving on cookie expiry
@@ -86,13 +101,31 @@ router.post('/save-purchase/:paymentToken', async (req, res) => {
   })
 
   // if new, then save
+  const uid = jwtGetPayload(req.params.paymentToken).userId;
   db.db('shopitty').collection('purchases')
-    .insertOne({ purchaseToken: req.params.paymentToken }, (error, result) => {
+    .insertOne({ userId: ObjectId(uid), purchaseToken: req.params.paymentToken }, (error, result) => {
       db.close()
       if (error) return res.send({ success: false, isSaveOk: -1, message: "An error occured" })
       if (result) return res.send({ success: true, isSaveOk: 1, message: "Payment is successfully saved." })
     })
 
+})
+
+router.get('/my-purchases', jwtVerifyAuthCookie, async (req, res) => {
+  const userId = jwtGetPayload(req.cookies.auth).uid;
+
+  const db = await DATABASE()
+  db.db('shopitty').collection('purchases')
+    .find({ userId: ObjectId(userId) }).toArray((error, result) => {
+      if (error) return res.send({ success: false, message: "An error occured" })
+
+      let decodedPurchaseTokenData = []
+      result.forEach(value => {
+        decodedPurchaseTokenData.push(jwtGetPayload(value.purchaseToken).productData)
+      })
+
+      return res.send({ success: true, message: "Purchases is successfully fetched.", data: decodedPurchaseTokenData })
+    })
 })
 
 module.exports = router

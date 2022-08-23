@@ -9,7 +9,7 @@ export default function Navbar(props) {
             <h1>Shopitty.</h1>
           </div>
           <div className="links">
-            <a target="_blank" rel="noreferrer" href="https://github.com/markcalendario">View on GitHub</a>
+            <a title="View on GitHub:markcalendario" target="_blank" rel="noreferrer" href="https://github.com/markcalendario"><i className="fa-brands fa-square-github"></i></a>
           </div>
         </div>
       </div>
