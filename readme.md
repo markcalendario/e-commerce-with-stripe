@@ -97,7 +97,7 @@ What I have learned while implementing Stripe
 
 - Production is not available in the Philippines, the test only
 
-# Stripe API
+## Stripe API
 
 This project uses [Checkout API](https://stripe.com/docs/api/checkout/sessions/create) of Stripe
 
