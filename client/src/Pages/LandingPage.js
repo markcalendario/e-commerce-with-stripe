@@ -20,13 +20,13 @@ function Hero() {
           <div className="hero-text col-5">
             <h1>Quality Products in Your Hands</h1>
             <p>Explore, browse, and add quality products in your cart with ease.</p>
-            <Button onClick={() => window.location.href = "/login"} type="solid-btn-primary">Start shopping</Button>
+            <Button onClick={() => window.location.href = "/login"} type="solid-btn-primary"> <i className="fa-solid fa-arrow-right-from-bracket"></i> Start shopping</Button>
           </div>
           <div className="hero-image col-5">
             <img src={HeroImage} alt="hero" />
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }

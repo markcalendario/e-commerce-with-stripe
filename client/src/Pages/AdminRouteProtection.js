@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 
-async function isUserAuthenticated() {
+async function isAdminAuthenticated() {
   return await new Promise(resolve => {
-    fetch(process.env.REACT_APP_API_URL + "/auth/users", { method: 'GET', credentials: 'include' })
+    fetch(process.env.REACT_APP_API_URL + "/auth/admin", { method: 'GET', credentials: 'include' })
       .then(result => {
         return result.json()
       }).then(result => {
@@ -12,11 +12,11 @@ async function isUserAuthenticated() {
   })
 }
 
-export function LoggedInProtectedRoute({ component, redirect }) {
+export function AdminProtectedRoute({ component, redirect }) {
   const [isAuth, setIsAuth] = useState(null);
 
   const auth = useCallback(async () => {
-    const isAuth = await isUserAuthenticated();
+    const isAuth = await isAdminAuthenticated();
     setIsAuth(isAuth)
   }, [])
 

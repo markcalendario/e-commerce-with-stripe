@@ -108,6 +108,7 @@ input:focus {
 #dashboard {
   padding: 50px 0;
   background-color: #f9f9f9;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 #dashboard .container .wrapper > *:not(:first-child) {
   margin-top: 15px;
@@ -124,31 +125,31 @@ input:focus {
 #dashboard .container .wrapper .d-controls .d-box:not(:first-child) {
   margin-top: 5px;
 }
-#dashboard .container .wrapper .d-controls .shop {
+#dashboard .container .wrapper .d-controls .d-box-blue {
   background-color: #0093f9;
 }
-#dashboard .container .wrapper .d-controls .shop:hover {
+#dashboard .container .wrapper .d-controls .d-box-blue:hover {
   color: #0093f9;
   background-color: white;
 }
-#dashboard .container .wrapper .d-controls .purchases {
-  background-color: rgb(0, 128, 255);
+#dashboard .container .wrapper .d-controls .d-blox-orange {
+  background-color: rgb(255, 136, 0);
 }
-#dashboard .container .wrapper .d-controls .purchases:hover {
-  color: rgb(0, 128, 255);
+#dashboard .container .wrapper .d-controls .d-blox-orange:hover {
+  color: rgb(255, 136, 0);
   background-color: white;
 }
-#dashboard .container .wrapper .d-controls .out {
+#dashboard .container .wrapper .d-controls .d-box-red {
   background-color: rgb(255, 0, 68);
 }
-#dashboard .container .wrapper .d-controls .out:hover {
+#dashboard .container .wrapper .d-controls .d-box-red:hover {
   color: rgb(255, 0, 68);
   background-color: white;
 }
-#dashboard .container .wrapper .d-controls .cart {
+#dashboard .container .wrapper .d-controls .d-box-green {
   background-color: rgb(0, 184, 71);
 }
-#dashboard .container .wrapper .d-controls .cart:hover {
+#dashboard .container .wrapper .d-controls .d-box-green:hover {
   color: rgb(0, 184, 71);
   background-color: white;
 }
@@ -178,7 +179,7 @@ input:focus {
   margin-top: 13px;
 }
 #hero .container .wrapper .hero-text h1 {
-  line-height: 36px;
+  font-weight: 900;
 }
 
 @media screen and (min-width: 768px) {
@@ -198,11 +199,31 @@ input:focus {
     margin-top: 20px;
   }
   #hero .container .wrapper .hero-text h1 {
-    line-height: unset;
     font-size: 40px;
   }
   #hero .container .wrapper .hero-image {
     text-align: center;
+  }
+}
+#admin {
+  padding: 50px 0;
+}
+#admin .container .wrapper .products {
+  padding: 50px 0;
+}
+#admin .container .wrapper .products > * {
+  margin: auto;
+}
+
+@media screen and (min-width: 768px) {
+  #admin .container .wrapper .products {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #admin .container .wrapper .products > * {
+    margin: unset;
+    margin-right: 15px;
+    margin-top: 15px;
   }
 }
 #shop {
@@ -314,9 +335,11 @@ input:focus {
   font-weight: 900;
 }
 #login .container .wrapper .login-box > *,
+#register .container .wrapper .login-box > * {
+  margin: 20px 0;
+}
 #login .container .wrapper .login-box .l-form-control > *,
 #login .container .wrapper .login-box .l-form-fields > *,
-#register .container .wrapper .login-box > *,
 #register .container .wrapper .login-box .l-form-control > *,
 #register .container .wrapper .login-box .l-form-fields > * {
   width: 100%;

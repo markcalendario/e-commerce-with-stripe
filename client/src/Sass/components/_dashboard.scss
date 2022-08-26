@@ -1,6 +1,7 @@
 #dashboard {
   padding: 50px 0;
   background-color: $white1;
+  box-shadow: $shadow1;
 
   .container {
     .wrapper {
@@ -24,7 +25,7 @@
           border-radius: 3px;
         }
 
-        .shop {
+        .d-box-blue {
           background-color: $primary-color;
 
           &:hover {
@@ -33,16 +34,16 @@
           }
         }
 
-        .purchases {
-          background-color: $primary-stable;
+        .d-blox-orange {
+          background-color: $primary-warning;
 
           &:hover {
-            color: $primary-stable;
+            color: $primary-warning;
             background-color: $white;
           }
         }
 
-        .out {
+        .d-box-red {
           background-color: $primary-danger;
 
           &:hover {
@@ -51,7 +52,7 @@
           }
         }
 
-        .cart {
+        .d-box-green {
           background-color: $primary-success;
 
           &:hover {

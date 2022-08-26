@@ -131,4 +131,32 @@ router.post('/sign-out', jwtVerifyAuthCookie, async (req, res) => {
   return res.clearCookie('auth').send({ success: true, message: 'You have been signed out.' })
 })
 
+// Admin Login
+
+router.post('/admin-login', validateLoginPayload, async (req, res) => {
+  const db = await DATABASE()
+
+  const userData = await new Promise(resolve => {
+    db.db('shopitty')
+      .collection('admin')
+      .findOne({ userName: req.body.userName }, (error, result) => {
+        db.close();
+        if (error) {
+          return res.send({ success: false, message: "An error occured." });
+        }
+
+        if (!result) {
+          return res.send({ success: false, message: "We can't find your admin account." });
+        }
+        resolve(result)
+      })
+  })
+
+  if (!await isPasswordCorrect(req.body.password, userData.password)) {
+    return res.send({ success: false, message: "Password is incorrect." });
+  }
+
+  return res.cookie("auth", await jwtSign({ uid: userData._id }), { httpOnly: true }).send({ success: true, message: "You are now logged in." })
+})
+
 module.exports = router 

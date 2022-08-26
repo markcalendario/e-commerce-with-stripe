@@ -22,7 +22,10 @@
           font-weight: 900;
         }
 
-        &>*,
+        &>* {
+          margin: 20px 0;
+        }
+
         .l-form-control>*,
         .l-form-fields>* {
           width: 100%;

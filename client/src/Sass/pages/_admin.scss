@@ -1,0 +1,39 @@
+#admin {
+  padding: 50px 0;
+
+  .container {
+    .wrapper {
+
+      .products {
+        padding: 50px 0;
+
+
+        &>* {
+          margin: auto;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #admin {
+
+    .container {
+      .wrapper {
+
+        .products {
+          display: flex;
+          flex-wrap: wrap;
+
+          &>* {
+            margin: unset;
+            margin-right: 15px;
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+  }
+
+}

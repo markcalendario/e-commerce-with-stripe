@@ -23,6 +23,8 @@ const products = require('./apis/products')
 app.use('/products', products);
 const cart = require('./apis/cart')
 app.use('/cart', cart);
+const admin = require('./apis/admin')
+app.use('/admin', admin);
 
 app.listen(process.env.PORT, function () {
   console.log("Express is running at %d.", process.env.PORT);

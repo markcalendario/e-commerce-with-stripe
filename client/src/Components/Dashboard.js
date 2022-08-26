@@ -39,13 +39,13 @@ export default function Dashboard() {
             <p>{userData.userName}</p>
           </div>
           <div className="d-controls">
-            <div onClick={() => window.location.href = "/shop"} className="d-box shop">Shop</div>
-            <div onClick={() => window.location.href = "/purchases"} className="d-box purchases">Purchases</div>
-            <div onClick={() => window.location.href = "/shop/cart"} className="d-box cart">Cart</div>
-            <div onClick={handleSignOut} className="d-box out">Sign Out</div>
+            <div onClick={() => window.location.href = "/shop"} className="d-box d-box-blue"><i className="fa-solid fa-shop"></i></div>
+            <div onClick={() => window.location.href = "/purchases"} className="d-box d-blox-orange"><i className="fa-solid fa-check-to-slot"></i></div>
+            <div onClick={() => window.location.href = "/shop/cart"} className="d-box d-box-green"><i className="fa-solid fa-cart-shopping"></i></div>
+            <div onClick={handleSignOut} className="d-box d-box-red"><i className="fa-solid fa-right-from-bracket"></i></div>
           </div>
         </div>
       </div>
-    </section>
+    </section >
   )
 }

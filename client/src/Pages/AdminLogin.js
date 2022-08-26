@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../Components/Buttons";
 import Navbar from "../Components/Navbar";
 
-export default function Login() {
+export default function AdminLogin() {
 
   function handleSignInClick() {
     const config = {
@@ -16,14 +16,14 @@ export default function Login() {
         password: document.getElementById('password').value,
       })
     }
-    fetch(process.env.REACT_APP_API_URL + "/accounts/login", config)
+    fetch(process.env.REACT_APP_API_URL + "/accounts/admin-login", config)
       .then(result => {
         return result.json()
       }).then(result => {
         if (!result.success)
           alert(result.message)
         else
-          window.location.href = "/shop"
+          window.location.href = "/admin"
       })
   }
 
@@ -35,14 +35,13 @@ export default function Login() {
           <div className="wrapper">
             <div className="login-box">
               <h1 className="l-box-title">Shopitty.</h1>
-              <h3>Login</h3>
+              <p>Administrator Login</p>
               <div className="l-form-fields">
                 <input type="text" name="username" id="username" placeholder="Username" />
                 <input type="password" name="password" id="password" placeholder="Password" />
               </div>
               <div className="l-form-control">
-                <Button onClick={handleSignInClick} type="solid-btn-primary"> <i className="fa-solid fa-right-to-bracket"></i> Sign In</Button>
-                <p>New user? <a href="/register">Register here.</a></p>
+                <Button onClick={handleSignInClick} type="solid-btn-primary">Sign In</Button>
               </div>
             </div>
           </div>

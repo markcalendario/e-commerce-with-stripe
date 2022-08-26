@@ -8,6 +8,9 @@ import Cart from "./Pages/Cart";
 import PaymentSuccess from "./Pages/PaymentSuccess";
 import PaymentCancelled from "./Pages/PaymentCancelled";
 import Purchases from "./Pages/Purchases";
+import AdminLogin from "./Pages/AdminLogin";
+import Admin from "./Pages/Admin";
+import { AdminProtectedRoute } from "./Pages/AdminRouteProtection";
 
 function App() {
   return (
@@ -21,6 +24,8 @@ function App() {
         <Route path="/purchase-success/:paymentToken" element={<PaymentSuccess />} />
         <Route path="/purchase-cancelled" element={<PaymentCancelled />} />
         <Route path="/purchases" element={<LoggedInProtectedRoute redirect="/login" component={<Purchases />} />} />
+        <Route path="/admin-login" element={<AdminLogin />} />
+        <Route path="/admin" element={<AdminProtectedRoute redirect='/login' component={<Admin />} />} />
       </Routes>
     </BrowserRouter>
   );
