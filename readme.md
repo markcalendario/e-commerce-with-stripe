@@ -1,7 +1,7 @@
 
 # E-Commerce
 
-A simple and plaint E-commerce MERN application with Stripe payment gateway
+A simple and plain E-commerce MERN application with Stripe payment gateway integration
 
 
 The main focus of this project is to implement the payment gateway using Stripe.
