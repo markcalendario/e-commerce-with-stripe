@@ -11,6 +11,7 @@ import Purchases from "./Pages/Purchases";
 import AdminLogin from "./Pages/AdminLogin";
 import Admin from "./Pages/Admin";
 import { AdminProtectedRoute } from "./Pages/AdminRouteProtection";
+import Orders from "./Pages/Orders";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/purchases" element={<LoggedInProtectedRoute redirect="/login" component={<Purchases />} />} />
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin" element={<AdminProtectedRoute redirect='/login' component={<Admin />} />} />
+        <Route path="/orders" element={<AdminProtectedRoute redirect='/login' component={<Orders />} />} />
       </Routes>
     </BrowserRouter>
   );

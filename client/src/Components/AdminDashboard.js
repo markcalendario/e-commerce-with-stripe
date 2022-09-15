@@ -24,7 +24,7 @@ export default function AdminDashboard() {
           </div>
           <div className="d-controls">
             <div onClick={() => window.location.href = "/shop"} className="d-box d-box-blue"><i className="fa-solid fa-plus-circle"></i> Add Product</div>
-            <div onClick={() => window.location.href = "/shop/cart"} className="d-box d-box-green"><i className="fa-solid fa-boxes-stacked"></i> Orders</div>
+            <div onClick={() => window.location.href = "/orders"} className="d-box d-box-green"><i className="fa-solid fa-boxes-stacked"></i> Orders</div>
             <div onClick={handleSignOut} className="d-box d-box-red"><i className="fa-solid fa-right-from-bracket"></i> Signout</div>
           </div>
         </div>

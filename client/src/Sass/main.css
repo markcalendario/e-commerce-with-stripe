@@ -166,6 +166,39 @@ input:focus {
     margin-top: unset;
   }
 }
+.purchase {
+  background-color: #f9f9f9;
+  padding: 10px 20px;
+  border: 1px gray solid;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  margin: 10px 0;
+}
+.purchase > *:not(:first-child) {
+  margin-top: 4px;
+}
+.purchase .title {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.purchase .desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.purchase .price {
+  color: rgb(0, 184, 71);
+}
+.purchase .desc,
+.purchase .buyer {
+  font-size: small;
+}
+
 #hero {
   padding: 50px 0;
 }
@@ -205,6 +238,13 @@ input:focus {
     text-align: center;
   }
 }
+#orders {
+  padding: 50px 0;
+}
+#orders .container .wrapper .orders-list {
+  padding: 30px 0;
+}
+
 #admin {
   padding: 50px 0;
 }
@@ -275,38 +315,6 @@ input:focus {
 }
 #purchases .container .wrapper .purchase-list {
   padding: 20px 0;
-}
-#purchases .container .wrapper .purchase-list .purchase {
-  background-color: #f9f9f9;
-  padding: 10px 20px;
-  border: 1px gray solid;
-  border-radius: 3px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  margin: 10px 0;
-}
-#purchases .container .wrapper .purchase-list .purchase > *:not(:first-child) {
-  margin-top: 4px;
-}
-#purchases .container .wrapper .purchase-list .purchase .title {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-#purchases .container .wrapper .purchase-list .purchase .desc {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-#purchases .container .wrapper .purchase-list .purchase .price {
-  color: rgb(0, 184, 71);
-}
-#purchases .container .wrapper .purchase-list .purchase .desc,
-#purchases .container .wrapper .purchase-list .purchase .date {
-  font-size: small;
 }
 
 #login,

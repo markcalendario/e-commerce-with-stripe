@@ -1,0 +1,37 @@
+.purchase {
+  background-color: $white1;
+  padding: 10px 20px;
+  border: 1px $gray solid;
+  border-radius: 3px;
+  box-shadow: $shadow1;
+  margin: 10px 0;
+
+  &>*:not(:first-child) {
+    margin-top: 4px;
+  }
+
+  .title {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .price {
+    color: $primary-success;
+  }
+
+  .desc,
+  .buyer {
+    font-size: small;
+  }
+}

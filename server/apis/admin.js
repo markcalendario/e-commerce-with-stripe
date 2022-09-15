@@ -34,4 +34,44 @@ router.post('/remove-product/:id', jwtVerifyAuthCookie, isAdmin, async (req, res
     })
 })
 
+router.get('/orders', jwtVerifyAuthCookie, isAdmin, async (req, res) => {
+  const db = await DATABASE()
+  db.db('shopitty')
+    .collection('purchases')
+    .aggregate([
+      {
+        $lookup: {
+          from: 'users',
+          localField: 'userId',
+          foreignField: '_id',
+          as: 'userData'
+        }
+      },
+      {
+        $project: {
+          'userData.email': 0,
+          'userData.password': 0,
+          'userData.userName': 0,
+          'userData._id': 0,
+        }
+      },
+      {
+        $unwind: '$userData'
+      }
+    ]).toArray((error, result) => {
+      if (error) return res.send({ success: false, message: 'An error occured' })
+      if (!result) return res.send({ success: false, message: 'No orders found' })
+
+      // Decode the purchase jwt token
+      // Will result to the data of the purchased products
+      console.log(result[0]._id.getTimestamp());
+      const orderData = []
+      result.forEach(data => {
+        orderData.push({ uid: data._id, productData: jwtGetPayload(data.purchaseToken).productData, fullName: data.userData.fullName })
+      })
+
+      if (result) return res.send({ success: true, message: 'Orders found', orders: orderData })
+    })
+})
+
 module.exports = router

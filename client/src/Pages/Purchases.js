@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react"
 import Dashboard from "../Components/Dashboard"
 import Navbar from "../Components/Navbar"
+import { PurchaseTab } from "../Components/PurchaseTab"
 
 export default function Purchases() {
   return (
@@ -41,11 +42,7 @@ function PurchasesList() {
       return "Nothing to display"
     } else {
       return purchases.map(value => (
-        <div className="purchase">
-          <h4 className="title">{value.title}</h4>
-          <p className="desc">{value.description}</p>
-          <h5 className="price">PHP {value.price}</h5>
-        </div>
+        <PurchaseTab key={Math.random() * 564541050} title={value.title} description={value.description} price={value.price} />
       ))
     }
   }
